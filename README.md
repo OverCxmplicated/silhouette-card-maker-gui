@@ -47,7 +47,7 @@ Instead of manually running scripts, this GUI guides you from setup to generatin
 
 * **Python 3.8+**
 * **Pip** (comes with Python)
-* A copy of the `[silhouette-card-maker](https://github.com/Alan-Cha/silhouette-card-maker)` project (version matching the folder name in `PROJECT_FOLDER_NAME`).
+* A copy of the [silhouette-card-maker](https://github.com/Alan-Cha/silhouette-card-maker) project (version matching the file name).
 
 ---
 
