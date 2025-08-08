@@ -97,8 +97,6 @@ The first run will:
 
 ![PDF Options Screenshot](screenshots/pdf_options.png)
 
-> 📌 Place actual screenshots in a `screenshots` folder inside your project and update the paths above.
-
 ---
 
 ## ⚙ PDF Options
