@@ -55,6 +55,8 @@ Instead of manually running scripts, this GUI guides you from setup to generatin
 
 1. Download the `silhouette-card-maker-x.x.x.zip` file from its official source.
 2. Extract it to a known location (e.g., `Documents`, `Desktop`).
+  or
+2a. Place the GUI inside the extracted `silhouette-card-maker-x.x.x.zip` file
 3. Ensure the extracted folder name matches the `PROJECT_FOLDER_NAME` in the GUI script:
 
    ```python
