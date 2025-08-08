@@ -2,7 +2,7 @@
 # Silhouette Card Maker GUI
 
 **Version:** `1.0.0`
-**Author:** *\[Your Name Here]*
+**Author:** *\Unequal/Cxmplicated*
 
 ---
 
