@@ -15,7 +15,7 @@ from PIL import Image
 # -----------------------------
 # Project configuration
 # -----------------------------
-PROJECT_FOLDER_NAME = "silhouette-card-maker-1.2.0"
+PROJECT_FOLDER_NAME = "silhouette-card-maker-1.3.0"
 PROJECT_VERSION = PROJECT_FOLDER_NAME.split("-")[-1]
 
 # -----------------------------
@@ -1124,12 +1124,30 @@ class CardMakerGUI:
         card_size_var = ctk.StringVar(value="standard")
         card_combo = ctk.CTkComboBox(card_row, variable=card_size_var,
                                      values=["standard","standard_double","japanese","poker","poker_half",
-                                             "bridge","bridge_square","domino","domino_square"],
+                                             "bridge","bridge_square","domino","domino_square","tarot"],
                                      state="disabled", width=160)
         card_combo.pack(side="left", padx=10)
         def toggle_card(*_):
             card_combo.configure(state="readonly" if card_size_enabled_var.get() else "disabled")
         card_size_enabled_var.trace_add("write", toggle_card)
+
+        # ----- Skip Card(s) ( --skip INTEGER RANGE ) -----
+        skip_row = ctk.CTkFrame(frame, fg_color="transparent")
+        skip_row.pack(fill="x", pady=4)
+
+        skip_enabled_var = ctk.BooleanVar(value=False)
+        ctk.CTkCheckBox(skip_row, text="Skip card (--skip):", variable=skip_enabled_var).pack(side="left")
+
+        skip_var = ctk.StringVar(value="")
+        skip_entry = ctk.CTkEntry(skip_row, textvariable=skip_var, width=100, state="disabled")
+        skip_entry.pack(side="left", padx=10)
+
+        ctk.CTkLabel(skip_row, text="Comma seperated integers (0,3,5,7)", font=ctk.CTkFont(size=10)).pack(side="left", padx=6)
+
+        def toggle_skip(*_):
+            skip_entry.configure(state="normal" if skip_enabled_var.get() else "disabled")
+
+        skip_enabled_var.trace_add("write", toggle_skip)
 
         # Custom options
         custom = CTkLabelFrame(frame, text="Custom Options")
@@ -1191,6 +1209,31 @@ class CardMakerGUI:
                 opts.append("--load_offset")
             if card_size_enabled_var.get():
                 opts.extend(["--card_size", card_size_var.get()])
+            if skip_enabled_var.get():
+                raw = skip_var.get().strip()
+                if raw == "":
+                    messagebox.showerror("Error", "Skip index list cannot be empty when enabled.")
+                    return
+
+                # Split by commas and strip whitespace
+                parts = [p.strip() for p in raw.split(",") if p.strip()]
+
+                for part in parts:
+                    if not part.isdigit():
+                        messagebox.showerror(
+                            "Error",
+                            f"Invalid skip index '{part}'. All values must be non-negative integers."
+                        )
+                        return
+                    idx = int(part)
+                    if idx < 0:
+                        messagebox.showerror(
+                            "Error",
+                            f"Skip index '{idx}' must be >= 0."
+                        )
+                        return
+                    opts.extend(["--skip", str(idx)])
+
 
             if custom_options_var.get().strip():
                 import shlex
