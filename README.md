@@ -1,16 +1,8 @@
-Got it ✅
-
-Here’s the revised **README** with:
-
-* **No workflow steps section**
-* Correct filename set to **`GUI.py`**
-* **Example screenshots** section (you can replace placeholder paths with actual images later)
-
 ---
 
 # Silhouette Card Maker GUI
 
-**Version:** `1.1.0`
+**Version:** `1.0.0`
 **Author:** *\[Your Name Here]*
 
 ---
