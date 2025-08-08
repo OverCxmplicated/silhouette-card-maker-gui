@@ -1,4 +1,3 @@
----
 
 # Silhouette Card Maker GUI
 
