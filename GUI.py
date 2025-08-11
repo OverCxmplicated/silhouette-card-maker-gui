@@ -15,7 +15,7 @@ from PIL import Image
 # -----------------------------
 # Project configuration
 # -----------------------------
-PROJECT_FOLDER_NAME = "silhouette-card-maker-1.3.0"
+PROJECT_FOLDER_NAME = "silhouette-card-maker-1.4.0"
 PROJECT_VERSION = PROJECT_FOLDER_NAME.split("-")[-1]
 
 # -----------------------------
@@ -75,6 +75,16 @@ class CardMakerGUI:
             "dir": "lorcana",
             "methods": {
                 "Dreamborn": "dreamborn",
+            },
+        },
+        "Netrunner": {
+            "dir": "netrunner",
+            "methods": {
+                "Jinteki": "jinteki",
+                "bbCode": "bbcode",
+                "Markdown(Reddit)": "markdown",
+                "Text": "text",
+                "Plain Text": "plain_text",
             },
         },
         "Altered": {
