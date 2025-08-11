@@ -53,11 +53,12 @@ Instead of manually running scripts, this GUI guides you from setup to generatin
 
 ### 2️⃣ Install & Extract Project Files
 
-1. Download the `silhouette-card-maker-x.x.x.zip` file from its official source.
-2. Extract it to a known location (e.g., `Documents`, `Desktop`).
+1. Run `pip install customtkinter` to install required dependancies.
+2. Download the `silhouette-card-maker-x.x.x.zip` file from its official source.
+3. Extract it to a known location (e.g., `Documents`, `Desktop`).
   or
 2a. Place the GUI inside the extracted `silhouette-card-maker-x.x.x.zip` file
-3. Ensure the extracted folder name matches the `PROJECT_FOLDER_NAME` in the GUI script:
+4. Ensure the extracted folder name matches the `PROJECT_FOLDER_NAME` in the GUI script:
 
    ```python
    PROJECT_FOLDER_NAME = "silhouette-card-maker-1.1.0"
